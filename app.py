@@ -45,4 +45,4 @@ def redirect_to_url(code):
                 if 'url' in urls[code].keys():
                     return redirect(urls[code]['url'])
             else:
-                    return redirect(url_for('static', filename='user_files/' + urls[code]['files'])))     
+                    return redirect(url_for('static', filename='user_files/' + urls[code]['files']))
