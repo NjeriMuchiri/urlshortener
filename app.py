@@ -27,7 +27,7 @@ def your_url():
        else:
            f = request.files['file']
            full_name = request.form['code'] + secure_filename(f.filename)
-           f.save('/home/muchirinjeri/urlshortener/' + full_name)
+           f.save('/home/muchirinjeri/urlshortener/static/user_files/' + full_name)
            urls[request.form['code']] = {'file': full_name}
             
        with open('urls.json', 'w') as urls_file:
@@ -44,4 +44,5 @@ def redirect_to_url(code):
             if code in urls.keys():
                 if 'url' in urls[code].keys():
                     return redirect(urls[code]['url'])
-                    
+            else:
+                    return redirect(url_for('static', filename='user_files/' + urls[code]['files'])))     
